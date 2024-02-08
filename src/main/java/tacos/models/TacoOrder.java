@@ -1,11 +1,29 @@
 package tacos.models;
 
-import java.util.List;
+import java.io.Serializable;
 import java.util.ArrayList;
-import lombok.Data;
+import java.util.Date;
+import java.util.List;
 
-@Data
-public class TacoOrder {
+import jakarta.persistence.*;
+
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+
+import static jakarta.persistence.GenerationType.IDENTITY;
+
+@Entity
+@Table(name = "orders")
+@Getter
+@Setter
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+public class TacoOrder implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
+    @EqualsAndHashCode.Include
+    private Long id;
 
     private String deliveryName;
 
@@ -23,6 +41,7 @@ public class TacoOrder {
 
     private String ccCVV;
 
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Taco> tacos = new ArrayList<>();
 
     public void addTaco(Taco taco) {
