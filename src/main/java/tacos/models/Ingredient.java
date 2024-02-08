@@ -4,6 +4,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Table;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.EnumType;
 import static jakarta.persistence.GenerationType.IDENTITY;
 
 import lombok.EqualsAndHashCode;
@@ -21,10 +23,11 @@ public class Ingredient {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @EqualsAndHashCode.Include
-    private Long id;
+    private long id;
 
     private String name;
 
+    @Enumerated(EnumType.STRING)
     private Type type;
 
     public enum Type {

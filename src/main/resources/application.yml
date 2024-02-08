@@ -1,4 +1,12 @@
 spring:
   datasource:
     generate-unique-name: false
-    name: tacocloud
+    name: taco
+  jpa:
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  output:
+    ansi:
+      enabled: always
