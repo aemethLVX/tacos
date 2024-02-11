@@ -8,16 +8,15 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.EnumType;
 import static jakarta.persistence.GenerationType.IDENTITY;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-
+import lombok.*;
+import org.springframework.stereotype.Component;
 
 @Entity
 @Table(name = "ingredients")
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@RequiredArgsConstructor
 public class Ingredient {
 
     @Id
@@ -25,10 +24,16 @@ public class Ingredient {
     @EqualsAndHashCode.Include
     private long id;
 
+    @NonNull
     private String name;
 
     @Enumerated(EnumType.STRING)
+    @NonNull
     private Type type;
+
+    public Ingredient() {
+
+    }
 
     public enum Type {
         WRAP, PROTEIN, VEGGIES, CHEESE, SAUCE

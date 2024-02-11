@@ -1,3 +1,4 @@
+/*
 delete from ingredient_taco;
 delete from tacos;
 delete from orders;
@@ -13,3 +14,4 @@ insert into ingredients(name, type) values ('Cheddar', 'CHEESE');
 insert into ingredients(name, type) values ('Monterrey Jack', 'CHEESE');
 insert into ingredients(name, type) values ('Salsa', 'SAUCE');
 insert into ingredients(name, type) values ('Sour Cream', 'SAUCE');
+*/
